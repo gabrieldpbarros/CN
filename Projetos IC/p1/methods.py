@@ -32,7 +32,6 @@ class Function:
         pd.options.display.float_format = '{:.5E}'.format
         return pd.DataFrame(data, columns=titles)
     
-    @staticmethod
     def printFormated(df: pd.DataFrame) -> None:
         """
         Imprime a tabela segundo a formatação requisitada pelo exercício.
