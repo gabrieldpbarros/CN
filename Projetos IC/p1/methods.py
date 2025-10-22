@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import pandas as pd
 
 from typing import Callable, List, Tuple
@@ -31,6 +32,21 @@ class Function:
         """
         pd.options.display.float_format = '{:.5E}'.format
         return pd.DataFrame(data, columns=titles)
+    
+    def _graph(self, df: pd.DataFrame) -> None:
+        """
+        Imprime a o gráfico de convergência da função.
+
+        ARGS:
+            df = Dataframe gerado pelo método numérico
+        """
+        iter = np.linspace(0, self.maxit, self.maxit)
+        plt.close("all")
+        plt.plot(iter, df["f(xk)"])
+        plt.xlabel("Número de iterações")
+        plt.ylabel("Valor de f(x)")
+        plt.grid()
+        plt.show()
     
     def printFormated(df: pd.DataFrame) -> None:
         """
